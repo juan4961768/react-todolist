@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 
 function App() {
@@ -8,20 +10,10 @@ function App() {
 
   // Agregar tarea
   const addTask = () => {
-    const trimmedTask = taskInput.trim();
-
-    if (trimmedTask === "") {
-      alert("La descripción de la tarea no puede estar vacía.");
-      return;
+    if (taskInput.trim() !== "") {
+      setTasks([...tasks, taskInput.trim()]);
+      setTaskInput(""); // Limpiar input
     }
-
-    if (tasks.includes(trimmedTask)) {
-      alert("Esta tarea ya existe en la lista.");
-      return;
-    }
-
-    setTasks([...tasks, trimmedTask]);
-    setTaskInput(""); // Limpiar input
   };
 
   // Eliminar tarea por índice
@@ -109,3 +101,4 @@ function App() {
 }
 
 export default App;
+
